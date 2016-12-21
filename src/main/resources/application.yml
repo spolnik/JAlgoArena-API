@@ -13,6 +13,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
+
+hystrix:
+  command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
 ---
 spring:
   profiles: heroku
