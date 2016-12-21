@@ -4,10 +4,10 @@ server:
 zuul:
   ignoredServices: '*'
   routes:
-    jalgoarena-judge: /jalgoarena-judge/**
-    jalgoarena-problems: /jalgoarena-problems/**
-    jalgoarena-auth: /jalgoarena-auth/**
-    jalgoarena-submissions: /jalgoarena-submissions/**
+    jalgoarena-judge: /judge/**
+    jalgoarena-problems: /problems/**
+    jalgoarena-auth: /auth/**
+    jalgoarena-submissions: /submissions/**
 
 eureka:
   client:
