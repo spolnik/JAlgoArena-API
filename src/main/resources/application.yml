@@ -15,13 +15,13 @@ eureka:
       defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
 
 hystrix:
-  command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
+  command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
 ---
 spring:
   profiles: heroku
 eureka:
   instance:
-    hostname: ${DOMAIN_NAME}
+    hostname: ${APP_NAME}.herokuapp.com
     nonSecurePort: 80
 
 logging:
