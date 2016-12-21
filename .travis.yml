@@ -7,3 +7,10 @@ cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
+deploy:
+  provider: heroku
+  api_key:
+    secure: A5HirVZaM1tBWQEwwbU/gFFWKCuminSZnct/DcXvw1Zc6uYmV9X6fRo2MYMJalQxa7pBAiNjY3+Iprw3s7izUdp6rY5teUBnU/xNlim8PAxFFfeltbrLFRmPYXzSZbTY/kacbEPUsV5s8y2ppulfdGQ/GxvNT0YrrXqXNDjtHDbuK396/1yx2pHxl08gfFxN9cqGnwpxl5KMFqJyDwp+p09nKIDt7qlqtg8yIGMUVvP5E+q2eujQtwJYDPx32HSyBIOLr10B6ck1o/T6emgkw1yf+ekeGAWGsWkQ7z6VKC/tOTifnmec+kqk6/+urIs4MgJ6OnSQfTh2Toa1s7oXV6YFf8SYt4TxuMWKJSST7qjzLwfZhfjiXIoGvM0IPWrka3J7aun7qddtjBXTDTniaI75lEBAPWwh+Ly3aC+Jh1aQ4pFuPUTK4U88sk8Abj35oeV8MKFJM0w6JFRBSd09BCaGWBPzhdiLfzLsUnZJK187NfG4NUBjCMaAckHPeiR2UJIxwEv4juuDlyP/9PdBZtxQ46+L0FDQM7NgD666f3Eqf0ScJN1on6aRM2gS4sQ6rSgVTXYSQ6YFl88Czb/sthqdRLD7wIoXzLOoAWL0c+LU5UjSjiwLpizwYke442pxMTz51vc+52RUVVhV0SAg29PGmjgWoJQmB8jRIhDMDWg=
+  app: jalgoarena-api
+  on:
+    repo: spolnik/JAlgoArena-API
