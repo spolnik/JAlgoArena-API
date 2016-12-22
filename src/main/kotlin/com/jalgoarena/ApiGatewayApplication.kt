@@ -18,19 +18,13 @@ open class JAlgoArenaApiGatewayApplication {
     @Bean
     open fun corsFilter(): CorsFilter {
         val source = UrlBasedCorsConfigurationSource()
-        val config = CorsConfiguration()
 
-        config.allowCredentials = true
-        config.addAllowedOrigin("*")
-        config.addAllowedHeader("*")
-        config.addAllowedMethod("OPTIONS")
-        config.addAllowedMethod("HEAD")
-        config.addAllowedMethod("GET")
-        config.addAllowedMethod("PUT")
-        config.addAllowedMethod("POST")
-        config.addAllowedMethod("DELETE")
-        config.addAllowedMethod("PATCH")
-        source.registerCorsConfiguration("/**", config)
+        source.registerCorsConfiguration("/**", CorsConfiguration().apply {
+            allowCredentials = true
+            addAllowedHeader("*")
+            addAllowedOrigin("*")
+            addAllowedMethod("*")
+        })
 
         return CorsFilter(source)
     }
