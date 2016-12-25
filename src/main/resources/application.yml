@@ -4,24 +4,21 @@ server:
 zuul:
   ignoredServices: '*'
   routes:
-    jalgoarena-judge: /judge/**
-    jalgoarena-problems: /problems/**
-    jalgoarena-auth: /auth/**
-    jalgoarena-submissions: /submissions/**
+    jalgoarena-judge: /judge/api/**
+    jalgoarena-problems: /problems/api/**
+    jalgoarena-auth: /auth/api/**
+    jalgoarena-submissions: /submissions/api/**
 
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
-
-hystrix:
-  command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
 ---
 spring:
   profiles: heroku
 eureka:
   instance:
-    hostname: ${APP_NAME}.herokuapp.com
+    hostname: ${APP_NAME:jalogoarena-api}.herokuapp.com
     nonSecurePort: 80
 
 logging:
