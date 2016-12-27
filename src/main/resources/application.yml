@@ -6,13 +6,14 @@ zuul:
   routes:
     jalgoarena-judge: /judge/api/**
     jalgoarena-problems: /problems/api/**
-    jalgoarena-auth: /auth/api/**
+    jalgoarena-auth: /auth/**
     jalgoarena-submissions: /submissions/api/**
 
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
+
 ---
 spring:
   profiles: heroku
