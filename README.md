@@ -12,7 +12,7 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 
 - API Gateway is the single point forwarding to destination service. It's using Eureka for identifying url/addresses of the services just based on their names. Additionally - it has configured client load balancer (Netflix Ribbon) - which load balance requests - it's mainly used in JAlgoArena for many Judge Agents - as they are stateless services and considerably slowest part of JAlgoArena infrastructure.
 
-![Component Diagram](https://github.com/spolnik/JAlgoArena-API/raw/master/design/component_diagram.png)
+![Component Diagram](https://github.com/spolnik/JAlgoArena/raw/master/design/component_diagram.png)
 
 ## Components
 
