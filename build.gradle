@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.0.5-2'
+        kotlinVersion = '1.0.6'
         springBootVersion = '1.4.2.RELEASE'
     }
 
@@ -24,7 +24,6 @@ repositories {
 
 jar {
     baseName = 'jalgoarena-api'
-    version = '1.0'
 }
 
 dependencies {
@@ -45,4 +44,12 @@ defaultTasks 'clean', 'bootRepackage'
 
 task stage {
     dependsOn 'bootRepackage'
+}
+
+task releaseZip(type: Zip, dependsOn: 'bootRepackage') {
+    from 'lib/', 'build/libs/', 'run.sh'
+    include '*.jar', '*.sh'
+    include '*/*'
+    archiveName "JAlgoArena-API-${version}.zip"
+    destinationDir(file('build/libs'))
 }
