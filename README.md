@@ -6,6 +6,7 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 - [Components](#components)
 - [Continuous Delivery](#continuous-delivery)
 - [Infrastructure](#infrastructure)
+- [Running Locally] (#running-locally)
 - [Notes](#notes)
 
 ## Introduction
@@ -32,6 +33,21 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 - Spring Boot, Spring Cloud
 - Netflix Zuul (api gateway), Ribbon (load balancer), Hystrix (circut breaker)
 - TravisCI - https://travis-ci.org/spolnik/JAlgoArena-API
+
+## Running locally
+
+There are two ways to run it - from sources or from binaries.
+- Default port: `5001`
+
+### Running from binaries
+- go to [releases page](https://github.com/spolnik/JAlgoArena-API/releases) and download last app package (JAlgoArena-API-[version_number].zip)
+- after unpacking it, go to folder and run `./run.sh` (to make it runnable, invoke command `chmod +x run.sh`)
+- you can modify port and Eureka service url in run.sh script, depending on your infrastructure settings. The script itself can be found in here: [run.sh](run.sh)
+
+### Running from sources
+- run `git clone https://github.com/spolnik/JAlgoArena-API` to clone locally the sources
+- now, you can build project with command `./gradlew clean bootRepackage` which will create runnable jar package with app sources. Next, run `java -Dserver.port=5001 -jar build\libs\jalgoarena-api-*.jar` which will start application
+- there is second way to run app with gradle. Instead of running above, you can just run `./gradlew clean bootRun`
 
 ## Notes
 - [Running locally](https://github.com/spolnik/jalgoarena/wiki)
