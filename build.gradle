@@ -47,9 +47,10 @@ task stage {
 }
 
 task releaseZip(type: Zip, dependsOn: 'bootRepackage') {
-    from 'lib/', 'build/libs/', 'run.sh'
-    include '*.jar', '*.sh'
-    include '*/*'
+    from('build/libs/') {
+        include('*.jar')
+    }
+    from 'run.sh'
     archiveName "JAlgoArena-API-${version}.zip"
     destinationDir(file('build/libs'))
 }
