@@ -4,15 +4,15 @@ server:
 zuul:
   ignoredServices: '*'
   routes:
-    jalgoarena-judge: /judge/api/**
-    jalgoarena-problems: /problems/api/**
-    jalgoarena-auth: /auth/**
-    jalgoarena-submissions: /submissions/api/**
+    jalgo-judge: /judge/api/**
+    jalgo-problems: /problems/api/**
+    jalgo-auth: /auth/**
+    jalgo-submissions: /submissions/api/**
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
+      defaultZone: ${EUREKA_URL:https://jalgo-eureka.herokuapp.com/eureka/}
 hystrix:
   command:
     default:
@@ -29,7 +29,7 @@ spring:
   profiles: heroku
 eureka:
   instance:
-    hostname: ${APP_NAME:jalogoarena-api}.herokuapp.com
+    hostname: ${APP_NAME:jalgo-api}.herokuapp.com
     nonSecurePort: 80
 
 logging:
