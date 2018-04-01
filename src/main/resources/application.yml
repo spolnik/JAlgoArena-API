@@ -8,6 +8,7 @@ zuul:
     jalgoarena-problems: /problems/api/**
     jalgoarena-auth: /auth/**
     jalgoarena-submissions: /submissions/api/**
+    jalgoarena-queue: /queue/api/**
 
 eureka:
   client:

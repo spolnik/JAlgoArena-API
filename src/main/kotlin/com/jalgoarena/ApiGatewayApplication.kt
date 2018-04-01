@@ -24,7 +24,7 @@ open class JAlgoArenaApiGatewayApplication {
 
     @Bean
     open fun commandLineRunner(routeLocator: RouteLocator): CommandLineRunner =
-            CommandLineRunner { args ->
+            CommandLineRunner { _ ->
                 routeLocator.routes
                         .forEach { route ->
                             LOG.info("${route.id} (${route.location}) ${route.fullPath}")
