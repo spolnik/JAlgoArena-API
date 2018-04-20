@@ -63,3 +63,11 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+task buildDockerImage(type: Exec, dependsOn: 'bootRepackage') {
+    commandLine 'docker',  'build', '-t', "spolnik/${rootProject.name}:latest", '-t', "spolnik/${rootProject.name}:${version}", '.'
+}
+
+task runAsContainer(type: Exec, dependsOn: 'buildDockerImage') {
+    commandLine 'docker', 'container', 'run', '-d', '-p', '5001:5001', "spolnik/${rootProject.name}:${version}"
+}
