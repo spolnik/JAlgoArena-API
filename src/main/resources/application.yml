@@ -1,5 +1,12 @@
+info:
+  component: Edge Server
+
+endpoints:
+  health:
+    sensitive: false
+
 server:
-  port: 5001
+  port: ${PORT:5001}
 
 zuul:
   ignoredServices: '*'

@@ -1,4 +1,7 @@
+sudo: required
 language: Java
+services:
+  - docker
 jdk:
 - oraclejdk8
 before_cache:
@@ -10,12 +13,17 @@ cache:
 before_deploy:
 - "./gradlew releaseZip"
 deploy:
-  provider: releases
-  api_key:
-    secure: hg3Y0V8appYiyVxDW3mRSgEVS89i0smfC62xAXLytZxhg5b8DJyC821yoP8GAx8Wmqv/GCTkaeA3ylVOefOZemxNXi2PYHJ9pjkBUHqPAwXowTXNVdMRzY6hLJsKhQBZJLeBxDt2pXAdV9l15lpp6Rm/cgaQixRsPog5a0y0IE/Fch+GGBsWaiIii378SsvsblWvFMEMvtIO0i++8OBFSZd/WcwNeJARRUakaXhJ2HiNmoGiB70Zk2D2EXznqjKWuJibzNosaoFfM0g5T6wmL4XTHJ2jDRzLW9Sci3YPUOaxaQlzezVInpAay0aQbgvxAJ2RteofzVwZPF696zb8M4RSElzfycV1EREdfhS44PY9jjHwlXhKSPLOBefdkaG1W9x4NMSBeWQHQCXEJ+cGEdk9H0TxfAVU+FOhat9xZULi7cr5C4w/HXuroCDccBXQoFKpBFCRf1Rb9c62o+tG6Y1t1pK7nfBTGn+A9GKpEkWtHYoerNZSrZ8d7itpqHtKR69sbgLcPUG/ORKi093W/sqiULC/071U9FDbsQ6f51DD9sBpY6X0Kq3Pxddypuw3zrJa0K/xWbdEtJgnNURT4JyKFADizBmxvQU2xW75XopAtFbYMAdJMk5wuWXtgym8K7w3Ac7uU5N98yPnKWVH3wJ/wfz8UWVa0cALm2x+0B0=
-  file_glob: true
-  file: "./build/libs/JAlgoArena-API-*.zip"
-  skip_cleanup: true
-  on:
-    repo: spolnik/JAlgoArena-API
-    tags: true
+  - provider: releases
+    api_key:
+      secure: hg3Y0V8appYiyVxDW3mRSgEVS89i0smfC62xAXLytZxhg5b8DJyC821yoP8GAx8Wmqv/GCTkaeA3ylVOefOZemxNXi2PYHJ9pjkBUHqPAwXowTXNVdMRzY6hLJsKhQBZJLeBxDt2pXAdV9l15lpp6Rm/cgaQixRsPog5a0y0IE/Fch+GGBsWaiIii378SsvsblWvFMEMvtIO0i++8OBFSZd/WcwNeJARRUakaXhJ2HiNmoGiB70Zk2D2EXznqjKWuJibzNosaoFfM0g5T6wmL4XTHJ2jDRzLW9Sci3YPUOaxaQlzezVInpAay0aQbgvxAJ2RteofzVwZPF696zb8M4RSElzfycV1EREdfhS44PY9jjHwlXhKSPLOBefdkaG1W9x4NMSBeWQHQCXEJ+cGEdk9H0TxfAVU+FOhat9xZULi7cr5C4w/HXuroCDccBXQoFKpBFCRf1Rb9c62o+tG6Y1t1pK7nfBTGn+A9GKpEkWtHYoerNZSrZ8d7itpqHtKR69sbgLcPUG/ORKi093W/sqiULC/071U9FDbsQ6f51DD9sBpY6X0Kq3Pxddypuw3zrJa0K/xWbdEtJgnNURT4JyKFADizBmxvQU2xW75XopAtFbYMAdJMk5wuWXtgym8K7w3Ac7uU5N98yPnKWVH3wJ/wfz8UWVa0cALm2x+0B0=
+    file_glob: true
+    file: "./build/libs/JAlgoArena-API-*.zip"
+    skip_cleanup: true
+    on:
+      repo: spolnik/JAlgoArena-API
+      tags: true
+  - provider: script
+    script: bash docker_push
+    on:
+      repo: spolnik/JAlgoArena-API
+      tags: true

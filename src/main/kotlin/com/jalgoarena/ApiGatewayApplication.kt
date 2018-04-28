@@ -9,10 +9,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Bean
 import org.springframework.boot.CommandLineRunner
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator
-import org.springframework.web.cors.CorsConfiguration
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource
-import org.springframework.web.filter.CorsFilter
-
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -20,33 +17,20 @@ import org.springframework.web.filter.CorsFilter
 @Configuration
 open class JAlgoArenaApiGatewayApplication {
 
-    private val LOG = LoggerFactory.getLogger(this.javaClass)
+    private val logger = LoggerFactory.getLogger(this.javaClass)
 
     @Bean
     open fun commandLineRunner(routeLocator: RouteLocator): CommandLineRunner =
             CommandLineRunner { _ ->
                 routeLocator.routes
                         .forEach { route ->
-                            LOG.info("${route.id} (${route.location}) ${route.fullPath}")
+                            logger.info("${route.id} (${route.location}) ${route.fullPath}")
                         }
             }
 
     @Bean
-    open fun corsFilter(): CorsFilter {
-        val source = UrlBasedCorsConfigurationSource()
-        source.registerCorsConfiguration("/**", CorsConfiguration().apply {
-            allowCredentials = true
-            addAllowedOrigin("*")
-            addAllowedHeader("*")
-            addAllowedMethod("OPTIONS")
-            addAllowedMethod("HEAD")
-            addAllowedMethod("GET")
-            addAllowedMethod("PUT")
-            addAllowedMethod("POST")
-            addAllowedMethod("DELETE")
-            addAllowedMethod("PATCH")
-        })
-        return CorsFilter(source)
+    open fun defaultSampler(): AlwaysSampler {
+        return AlwaysSampler()
     }
 }
 
