@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Bean
 import org.springframework.boot.CommandLineRunner
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator
-import org.springframework.cloud.sleuth.sampler.AlwaysSampler
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -27,11 +26,6 @@ open class JAlgoArenaApiGatewayApplication {
                             logger.info("${route.id} (${route.location}) ${route.fullPath}")
                         }
             }
-
-    @Bean
-    open fun defaultSampler(): AlwaysSampler {
-        return AlwaysSampler()
-    }
 }
 
 fun main(args: Array<String>) {

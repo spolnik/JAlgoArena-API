@@ -28,20 +28,8 @@ hystrix:
       execution:
         isolation:
           strategy: THREAD
-          thread:
-            timeoutInMilliseconds: 30000
-ribbon:
-  ReadTimeout: 30000
-  ConnectTimeout: 30000
----
-spring:
-  profiles: heroku
-eureka:
-  instance:
-    hostname: ${APP_NAME:jalogoarena-api}.herokuapp.com
-    nonSecurePort: 80
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: INFO
+#          thread:
+#            timeoutInMilliseconds: 30000
+#ribbon:
+#  ReadTimeout: 30000
+#  ConnectTimeout: 30000
