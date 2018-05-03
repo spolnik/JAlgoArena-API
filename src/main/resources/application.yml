@@ -28,8 +28,3 @@ hystrix:
       execution:
         isolation:
           strategy: THREAD
-#          thread:
-#            timeoutInMilliseconds: 30000
-#ribbon:
-#  ReadTimeout: 30000
-#  ConnectTimeout: 30000
