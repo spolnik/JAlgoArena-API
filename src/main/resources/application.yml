@@ -12,7 +12,6 @@ zuul:
   ignoredServices: '*'
   routes:
     jalgoarena-judge: /judge/api/**
-    jalgoarena-problems: /problems/api/**
     jalgoarena-auth: /auth/**
     jalgoarena-submissions: /submissions/api/**
     jalgoarena-queue: /queue/api/**
