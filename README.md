@@ -11,7 +11,7 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 
 ## Introduction
 
-- API Gateway is the single point forwarding to destination service. It's using Eureka for identifying url/addresses of the services just based on their names. Additionally - it has configured client load balancer (Netflix Ribbon) - which load balance requests - it's mainly used in JAlgoArena for many Judge Agents - as they are stateless services and considerably slowest part of JAlgoArena infrastructure.
+- API Gateway is the single point forwarding to destination service. It's using Consul for identifying url/addresses of the services just based on their names. Additionally - it has configured client load balancer (Netflix Ribbon) - which load balance requests - it's mainly used in JAlgoArena for many Judge Agents - as they are stateless services and considerably slowest part of JAlgoArena infrastructure.
 
 ![Component Diagram](https://github.com/spolnik/JAlgoArena/raw/master/design/component_diagram.png)
 
@@ -25,11 +25,9 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 - initially, developer push his changes to GitHub
 - in next stage, GitHub notifies Travis CI about changes
 - Travis CI runs whole continuous integration flow, running compilation, tests and generating reports
-- application is deployed into Heroku machine
 
 ## Infrastructure
 
-- Heroku (PaaS)
 - Spring Boot, Spring Cloud
 - Netflix Zuul (api gateway), Ribbon (load balancer), Hystrix (circut breaker)
 - TravisCI - https://travis-ci.org/spolnik/JAlgoArena-API
