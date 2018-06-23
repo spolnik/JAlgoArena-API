@@ -17,10 +17,6 @@ zuul:
     jalgoarena-queue: /queue/api/**
     jalgoarena-ranking: /ranking/api/**
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:5000/eureka/}
 hystrix:
   command:
     default:
