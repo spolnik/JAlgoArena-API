@@ -1,14 +1,21 @@
+sudo: required
 language: Java
+services:
+  - docker
 jdk:
-- oraclejdk8
+  - oraclejdk8
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov
 before_cache:
-- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
 before_deploy:
-- "./gradlew releaseZip"
+  - "./gradlew releaseZip"
 deploy:
   - provider: releases
     api_key:
@@ -16,6 +23,11 @@ deploy:
     file_glob: true
     file: "./build/libs/JAlgoArena-API-*.zip"
     skip_cleanup: true
+    on:
+      repo: spolnik/JAlgoArena-API
+      tags: true
+  - provider: script
+    script: bash docker_push
     on:
       repo: spolnik/JAlgoArena-API
       tags: true

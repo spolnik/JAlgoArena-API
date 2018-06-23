@@ -14,7 +14,7 @@ import org.springframework.cloud.netflix.zuul.filters.RouteLocator
 @EnableDiscoveryClient
 @EnableZuulProxy
 @Configuration
-open class JAlgoArenaApiGatewayApplication {
+open class JAlgoArenaApiGateway {
 
     private val logger = LoggerFactory.getLogger(this.javaClass)
 
@@ -29,5 +29,5 @@ open class JAlgoArenaApiGatewayApplication {
 }
 
 fun main(args: Array<String>) {
-    SpringApplication.run(JAlgoArenaApiGatewayApplication::class.java, *args)
+    SpringApplication.run(JAlgoArenaApiGateway::class.java, *args)
 }
