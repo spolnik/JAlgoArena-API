@@ -6,7 +6,7 @@ JAlgoArena API is API Gateway service for all backend JAlgoArena services. It's 
 - [Components](#components)
 - [Continuous Delivery](#continuous-delivery)
 - [Infrastructure](#infrastructure)
-- [Running Locally] (#running-locally)
+- [Running Locally](#running-locally)
 - [Notes](#notes)
 
 ## Introduction
